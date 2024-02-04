@@ -2,10 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func main() {
-	fmt.Print("Hello, World!")
-	os.Exit(0)
+	fmt.Println("Hello, World!")
 }
