@@ -2,15 +2,15 @@ package main
 
 import (
 	"net/http"
+
+	"github.com/go-chi/chi/v5"
 )
 
 func main() {
+	r := chi.NewRouter()
+	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello World"))
+	})
+	http.ListenAndServe(":3000", r)
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
-	})
-	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, World!"))
-	})
-	http.ListenAndServe(":8000", nil)
 }
